@@ -22,7 +22,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<LoginResponse> login(LoginRequestBody requestBody) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
@@ -50,7 +50,7 @@ class _ApiService implements ApiService {
 
   @override
   Future<SignUpResponse> sigUp(SignUpRequestBody signUpRequestBody) async {
-    const _extra = <String, dynamic>{};
+    final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
