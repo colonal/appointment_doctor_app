@@ -90,7 +90,7 @@ ThemeData lightTheme() {
         fontSize: 32.sp,
       ),
       labelMedium: getBoldStyle(
-        color: ColorManager.textColor,
+        color: ColorManager.textColorDark,
         fontSize: 18.sp,
       ),
       labelSmall: getBoldStyle(
