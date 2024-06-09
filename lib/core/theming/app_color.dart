@@ -23,10 +23,18 @@ class ColorManager {
 
   static Color grey = const Color(0xffEDEDED);
   static Color darkGrey = const Color(0xff525252);
-  static Color darkBlue = const Color(0xff525252);
 
   static Color grey1 = const Color(0xffFDFDFF);
   static Color grey2 = const Color(0xffBCBCBC);
   static Color error = const Color(0xffe61f34);
   static Color blue = const Color(0xff247CFF);
+
+  static const Color mainBlue = Color(0xFF247CFF);
+  static const Color lightBlue = Color(0xFFF4F8FF);
+  static const Color darkBlue = Color(0xFF242424);
+  static const Color gray = Color(0xFF757575);
+  static const Color lightGray = Color(0xFFC2C2C2);
+  static const Color lighterGray = Color(0xFFEDEDED);
+  static const Color moreLightGray = Color(0xFFFDFDFF);
+  static const Color moreLighterGray = Color(0xFFF5F5F5);
 }
