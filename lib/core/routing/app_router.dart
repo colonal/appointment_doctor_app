@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../features/home/logic/home_cubit.dart';
 import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/screen/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
@@ -31,7 +32,10 @@ class AppRouter {
       ),
       GoRoute(
         path: Routes.homeScreen,
-        builder: (context, state) => const HomeScreen(),
+        builder: (context, state) => BlocProvider<HomeCubit>(
+          create: (context) => getIt<HomeCubit>()..getSpecializations(),
+          child: const HomeScreen(),
+        ),
       ),
       GoRoute(
         path: Routes.sigUpScreen,
