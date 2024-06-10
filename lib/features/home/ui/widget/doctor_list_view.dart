@@ -1,57 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theming/styles.dart';
+import '../../data/model/specializations_response_model.dart';
+import 'doctor_list_view_item.dart';
 
 class DoctorListView extends StatelessWidget {
-  const DoctorListView({super.key});
+  final List<Doctors?> doctors;
+  const DoctorListView(this.doctors, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: doctors.length,
         itemBuilder: (context, index) {
-          return Container(
-            margin: EdgeInsets.only(bottom: 16.h),
-            child: Row(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12.0),
-                  child: Image.network(
-                    width: 110.w,
-                    height: 120.h,
-                    'https://static.wikia.nocookie.net/five-world-war/images/6/64/Hisoka.jpg/revision/latest?cb=20190313114050',
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                const SizedBox(width: 16),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Name',
-                        style: TextStyles.font18DarkBlueBold,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        'Degree | +09213 32234 23',
-                        style: TextStyles.font12GrayMedium,
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        'Email@gmail.com',
-                        style: TextStyles.font12GrayMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          );
+          return DoctorListViewItem(doctors[index]!);
         },
       ),
     );

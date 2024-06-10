@@ -1,12 +1,12 @@
-import 'package:appointment_doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../../core/theming/app_color.dart';
+import '../../data/model/specializations_response_model.dart';
+import 'doctor_speciality_list_view_item.dart';
 
 class DoctorSpecialityListView extends StatelessWidget {
-  const DoctorSpecialityListView({super.key});
+  final List<SpecializationsData?> specializationList;
+  const DoctorSpecialityListView(this.specializationList, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,27 +14,10 @@ class DoctorSpecialityListView extends StatelessWidget {
       height: 100.h,
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: specializationList.length,
         separatorBuilder: (context, index) => SizedBox(width: 24.w),
         itemBuilder: (context, index) {
-          return Column(
-            children: [
-              CircleAvatar(
-                radius: 28,
-                backgroundColor: ColorManager.lightBlue,
-                child: SvgPicture.asset(
-                  "assets/svgs/general_speciality.svg",
-                  height: 40.h,
-                  width: 40.h,
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                "Specialization",
-                style: TextStyles.font12GrayRegular,
-              )
-            ],
-          );
+          return DoctorSpecialityListViewItem(specializationList[index]!);
         },
       ),
     );
