@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
+import '../helpers/constants.dart';
+import '../helpers/shared_pref_helper.dart';
+
 class DioFactory {
   /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
@@ -33,12 +36,18 @@ class DioFactory {
     );
   }
 
-  static void _addDioHeaders() {
+  static void _addDioHeaders() async {
     dio?.options.headers = {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
       'Authorization':
-          "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3ZjYXJlLmludGVncmF0aW9uMjUuY29tL2FwaS9hdXRoL2xvZ2luIiwiaWF0IjoxNzE4MDQ4MTk0LCJleHAiOjE3MTgwNTE3OTQsIm5iZiI6MTcxODA0ODE5NCwianRpIjoia1RkQk51WE05bmlVbmpsSCIsInN1YiI6IjEyOTMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.7CEcUanvDqFoEYGWdWdJ78RY1xRlUVu9XU-bU7i81uY",
+          "Bearer ${await SharedPrefHelper.getSecuredString(SharedPrefKeys.userToken)}",
+    };
+  }
+
+  static Future<void> setTokenAfterLogin(String token) async {
+    dio?.options.headers = {
+      'Authorization': "Bearer $token",
     };
   }
 }

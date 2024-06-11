@@ -10,13 +10,15 @@ import '../../features/home/ui/home_screen.dart';
 import '../../features/login/ui/screen/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
 import '../di/dependency_injection.dart';
+import '../helpers/constants.dart';
 import 'routes.dart';
 
 class AppRouter {
   // GoRouter configuration
   final router = GoRouter(
     debugLogDiagnostics: true,
-    initialLocation: Routes.onBoardingScreen,
+    initialLocation:
+        isLoggedInUser ? Routes.homeScreen : Routes.onBoardingScreen,
     routes: [
       GoRoute(
         // name: 'onBoarding',
