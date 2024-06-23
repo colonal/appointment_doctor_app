@@ -2,9 +2,10 @@ import "package:flutter/material.dart";
 import "package:flutter_screenutil/flutter_screenutil.dart";
 
 import "widget/doctor_speciality_see_all.dart";
+import "widget/doctor_list/doctors_bloc_builder.dart";
 import "widget/doctors_blue_container.dart";
 import "widget/home_top_bar.dart";
-import "widget/specialization_and_doctor_bloc_builder.dart";
+import "widget/specializations_list/specialization_bloc_builder.dart";
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -25,7 +26,9 @@ class HomeScreen extends StatelessWidget {
               SizedBox(height: 24.h),
               const DoctorSpecialitySeeAll(),
               SizedBox(height: 18.h),
-              const SpecializationAndDoctorBlocBuilder(),
+              const SpecializationBlocBuilder(),
+              SizedBox(height: 8.h),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

@@ -2,8 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/theming/styles.dart';
-import '../../data/model/specializations_response_model.dart';
+import '../../../../../core/theming/styles.dart';
+import '../../../data/model/specializations_response_model.dart';
 
 class DoctorListViewItem extends StatelessWidget {
   final Doctors doctors;
