@@ -1,4 +1,4 @@
-import 'package:appointment_doctor_app/core/networking/api_error_handler.dart';
+import 'package:appointment_doctor_app/core/networking/api_error_model.dart';
 import 'package:appointment_doctor_app/features/home/data/model/specializations_response_model.dart';
 import 'package:appointment_doctor_app/features/home/ui/widget/doctor_list/doctors_shimmer_loading.dart';
 import 'package:appointment_doctor_app/features/home/ui/widget/specializations_list/speciality_shimmer_loading.dart';
@@ -37,8 +37,8 @@ class SpecializationBlocBuilder extends StatelessWidget {
     return SpecialityListView(specializationList);
   }
 
-  Widget setupError(ErrorHandler message) =>
-      Text(message.apiErrorModel.message ?? "");
+  Widget setupError(ApiErrorModel message) =>
+      Text(message.getAllErrorMessage());
 
   Widget setupLoading() {
     return Expanded(

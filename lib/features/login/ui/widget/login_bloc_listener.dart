@@ -1,3 +1,4 @@
+import 'package:appointment_doctor_app/core/networking/api_error_model.dart';
 import 'package:appointment_doctor_app/core/routing/routes.dart';
 import 'package:appointment_doctor_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:appointment_doctor_app/features/login/logic/cubit/login_state.dart';
@@ -37,7 +38,7 @@ class LoginBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel error) {
     ThemeData theme = Theme.of(context);
     context.pop();
     showDialog(
@@ -49,7 +50,7 @@ class LoginBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.getAllErrorMessage(),
           style: theme.textTheme.titleMedium,
         ),
         actions: [
