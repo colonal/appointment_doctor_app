@@ -45,7 +45,7 @@ class HomeCubit extends Cubit<HomeState> {
     if (!specializationDoctorList.isNullOrEmpty()) {
       emit(HomeState.doctorSuccess(specializationDoctorList));
     } else {
-      emit(HomeState.doctorError(ErrorHandler.handle("No doctor found")));
+      emit(HomeState.doctorError(ApiErrorHandler.handle("No doctor found")));
     }
   }
 

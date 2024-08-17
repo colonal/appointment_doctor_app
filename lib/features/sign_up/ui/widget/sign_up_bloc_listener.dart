@@ -1,9 +1,9 @@
+import 'package:appointment_doctor_app/core/networking/api_error_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../core/routing/routes.dart';
-
 import '../../../../core/theming/app_color.dart';
 import '../../logic/sign_up_cubit.dart';
 import '../../logic/sign_up_state.dart';
@@ -80,7 +80,7 @@ class SignUpBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel error) {
     ThemeData theme = Theme.of(context);
     context.pop();
     showDialog(
@@ -92,7 +92,7 @@ class SignUpBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          error.getAllErrorMessage(),
           style: theme.textTheme.displayMedium,
         ),
         actions: [
